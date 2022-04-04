@@ -42,6 +42,7 @@ int RacialStatsCharacter::getConstitution() const {
         case Race::Human:
         case Race::RockGnome:
         case Race::HalfOrc:
+        case Race::StoutHalfling:
             return BaseCharacter::getConstitution() + 1 + selectable_stats.constitution;
         default:
             return BaseCharacter::getConstitution() + selectable_stats.constitution;
@@ -88,7 +89,7 @@ int RacialStatsCharacter::getCharisma() const {
     }
 }
 
-std::string RacialStatsCharacter::getRace() {
+std::string RacialStatsCharacter::getRace() const {
     switch (race) {
         case Race::Human:
             return "Human";
@@ -152,7 +153,7 @@ int RacialStatsCharacter::getMovementSpeed() const {
     }
 }
 
-void RacialStatsCharacter::adjustStrenght(int adjustment) {
+void RacialStatsCharacter::adjustStrength(int adjustment) {
     selectable_stats.strength += adjustment;
 }
 
@@ -176,7 +177,7 @@ void RacialStatsCharacter::adjustCharisma(int adjustment) {
     selectable_stats.charisma += adjustment;
 }
 
-void RacialStatsCharacter::resetStreghtAdjustment() {
+void RacialStatsCharacter::resetStrengthAdjustment() {
     selectable_stats.strength = 0;
 }
 
@@ -205,7 +206,35 @@ void RacialStatsCharacter::resetAdjustments() {
     resetConstitutionAdjustment();
     resetDexterityAdjustment();
     resetIntelligenceAdjustment();
-    resetStreghtAdjustment();
+    resetStrengthAdjustment();
     resetWisdomAdjustment();
+}
+
+int RacialStatsCharacter::getStrengthAdjustment() const {
+    return selectable_stats.strength;
+}
+
+int RacialStatsCharacter::getDexterityAdjustment() const {
+    return selectable_stats.dexterity;
+}
+
+int RacialStatsCharacter::getConstitutionAdjustment() const {
+    return selectable_stats.constitution;
+}
+
+int RacialStatsCharacter::getIntelligenceAdjustment() const {
+    return selectable_stats.intelligence;
+}
+
+int RacialStatsCharacter::getWisdomAdjustment() const {
+    return selectable_stats.wisdom;
+}
+
+int RacialStatsCharacter::getCharismaAdjustment() const {
+    return selectable_stats.charisma;
+}
+
+Race RacialStatsCharacter::getRaceEnum() const {
+    return race;
 }
 

@@ -38,15 +38,23 @@ public:
 
     [[nodiscard]] int getMovementSpeed() const;
 
-    void adjustStrenght(int adjustment);
+    /// Must be used for races that have free choice stats.
+    void adjustStrength(int adjustment);
     void adjustDexterity(int adjustment);
     void adjustConstitution(int adjustment);
     void adjustIntelligence(int adjustment);
     void adjustWisdom(int adjustment);
     void adjustCharisma(int adjustment);
 
+    [[nodiscard]] int getStrengthAdjustment() const;
+    [[nodiscard]] int getDexterityAdjustment() const;
+    [[nodiscard]] int getConstitutionAdjustment() const;
+    [[nodiscard]] int getIntelligenceAdjustment() const;
+    [[nodiscard]] int getWisdomAdjustment() const;
+    [[nodiscard]] int getCharismaAdjustment() const;
+
     void resetAdjustments();
-    void resetStreghtAdjustment();
+    void resetStrengthAdjustment();
     void resetDexterityAdjustment();
     void resetConstitutionAdjustment();
     void resetIntelligenceAdjustment();
@@ -55,7 +63,8 @@ public:
 
     virtual ~RacialStatsCharacter();
 
-    std::string getRace();
+    [[nodiscard]] std::string getRace() const;
+    [[nodiscard]] Race getRaceEnum() const;
 
     [[nodiscard]] int getStrength() const override;
     [[nodiscard]] int getDexterity() const override;

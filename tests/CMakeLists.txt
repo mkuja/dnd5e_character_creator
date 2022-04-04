@@ -16,7 +16,10 @@ target_link_libraries(GTest::GTest INTERFACE gtest_main)
 ###########
 add_executable(dnd5e_character_creator_tests
         Tests.cpp
-        ../src/Character/BaseCharacter.cpp ../src/Character/BaseCharacter.h TestBaseCharacter.cpp)
+        ../src/Character/BaseCharacter.cpp ../src/Character/BaseCharacter.h
+        ../src/Character/RacialStatsCharacter.cpp ../src/Character/RacialStatsCharacter.h
+        TestBaseCharacter.cpp
+        TestRacialStatsCharacter.cpp)
 
 target_link_libraries(dnd5e_character_creator_tests gtest_main)
 
